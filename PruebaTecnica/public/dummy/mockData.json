@@ -1,0 +1,91 @@
+[
+    {
+      "id": 1,
+      "name": "Alice Johnson",
+      "username": "alice_j",
+      "bio":"Web dev, React fan. Making cool stuff happen online.",
+      "urls": [
+        {
+          "url": "https://example.com/alice1",
+          "title": "Mi LinkedIn"
+        },
+        {
+          "url": "https://example.com/alice2",
+          "title": "https://example.com/alice2"
+        }
+      ],
+      "profile_picture": "/assets/AliceJohnson.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Bob Smith",
+      "username": "bob_smith",
+      "urls": [
+        {
+          "url": "https://example.com/bob1",
+          "title": "Bienvenido a mi Instagram"
+        },
+        {
+          "url": "https://example.com/bob2",
+          "title": "https://example.com/bob2"
+        },
+        {
+          "url": "https://example.com/bob3",
+          "title": "Este es mi facebook!! 👌"
+        }
+      ],
+      "profile_picture": "/assets/BobSmith.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Charlie Brown",
+      "username": "charlie_b",
+      "bio":"Guitarist jamming jazz and rock. Creating catchy tunes.",
+      "urls": [
+        {
+          "url": "https://example.com/charlie1",
+          "title": "Mi LinkedIn"
+        },
+        {
+          "url": "https://example.com/charlie2",
+          "title": "https://example.com/charlie2"
+        },
+        {
+          "url": "https://example.com/charlie3",
+          "title": "Bienvenido a mi Instagram"
+        },
+        {
+          "url": "https://example.com/charlie4",
+          "title": "Este es mi facebook!! 👌"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Diana Moore",
+      "username": "diana_m",
+      "urls": [
+        {
+          "url": "https://example.com/diana1",
+          "title": "https://example.com/diana1"
+        },
+        {
+          "url": "https://example.com/diana2",
+          "title": "Bienvenido a mi Instagram"
+        }
+      ],
+      "profile_picture": "/assets/DianeMoore.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Ethan Lee",
+      "username": "ethan_l",
+      "bio":"Watercolor artist. Turning nature into colorful vibes.",
+      "urls": [
+        {
+          "url": "https://example.com/ethan1",
+          "title": "Mi LinkedIn"
+        }
+      ]
+    }
+  ]

@@ -1,0 +1,79 @@
+---
+import { fetchUsers } from '../service/fetchUsers';
+import LayoutUser from '../layouts/LayoutUser.astro';
+import Link from '../components/Link.astro';
+
+export const prerender = false;
+const { user } = Astro.params;
+
+const users = await fetchUsers();
+const baseUrl = import.meta.env.SITE || "http://localhost:4321";
+const currentUser = users.find((u:any) => u.username === user);
+const firstLetter = currentUser.name.charAt(0).toUpperCase();
+const isProfilePicture = currentUser.profile_picture;
+
+if (!currentUser) {
+  throw new Error("User not found");
+}
+---
+<LayoutUser title="User Profile">
+<div class="user-profile">
+  <div class="imgProfileContainer">
+    {isProfilePicture ? (
+      <img src={`${baseUrl}${currentUser.profile_picture}`} alt={`${currentUser.name} Profile Picture`} />
+    ) : (
+      <div>{firstLetter}</div> 
+    )}
+    </div>
+  <h1 class="name">{currentUser.username}</h1>
+  <h2 class="userName">{currentUser.bio}</h2>
+    {currentUser.urls.map((url: any) => (
+        <Link href={url.url} title={url.title}
+        />
+      
+    ))} 
+  
+</div>
+</LayoutUser>
+
+<style>
+  .imgProfileContainer {
+    background: #716b6b;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .imgProfileContainer div {
+    font-size: 45px;
+    color: #ffffff;
+    height: 70%;
+  }
+  .imgProfileContainer img {
+    width: 100%;
+    height: 100%;
+  }
+  .name{
+    text-align: center;
+    color: white;
+    margin: 10px;
+  }
+  .userName {
+    text-align: center;
+    color: #888585;
+    margin: 0% 0 5% 0%;
+    font-size: 1.3rem;
+  }
+  .user-profile {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  img {
+    max-width: 100px;
+    border-radius: 50%;
+  }
+</style>

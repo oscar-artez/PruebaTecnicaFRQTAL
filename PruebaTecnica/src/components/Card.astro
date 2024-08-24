@@ -1,0 +1,120 @@
+---
+
+export interface Url {
+  url: string;
+  title: string;
+}
+
+export interface User {
+  name: string;
+  username: string;
+  profilePicture: string;
+  bio: string;
+
+}
+
+const { name, username,profilePicture,bio} = Astro.props;
+const baseUrl = import.meta.env.SITE || "http://localhost:4321";
+const firstLetter = name.charAt(0).toUpperCase();
+const isProfilePicture = profilePicture;
+---
+
+<a  href={`/${username}`} class="card">
+	<div class="imgProfileContainer">
+		{isProfilePicture ? (
+			<img src={`${baseUrl}${profilePicture}`} alt={`${name} Profile Picture`} />
+		  ) : (
+			<div>{firstLetter}</div> 
+		  )}	</div>
+  	<div class="infoContainer">
+		<h2 class="nameCard">{name}</h2>
+		<p class="usernameCard">@{username}</p>
+		<p class="bio">{bio}</p>
+	</div>
+	<div class="labelContainer">
+		<label> Click para mi LinkTree <bdi class="d-none">></bdi> </label>
+	</div>
+</a>
+
+<style>
+  .card {
+	display: grid;
+	grid-template-columns: 0.4fr 2fr 1fr;
+	margin: 2% 0;
+	padding: 10px;
+	border:#c282db96 solid 1px;
+	border-radius: 15px;
+	cursor: pointer;
+	color: #fff;
+	text-decoration: none;
+}
+.infoContainer{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+.nameCard{
+	margin: 0%;
+	margin-left: 10px;
+  	font-size: 20px;
+  	font-weight: 700;
+  	align-self: flex-start;
+}
+.usernameCard{
+	margin: 0%;
+	margin-left: 10px;
+  	font-size: 16px;
+  	font-weight: 400;
+  	align-self: flex-start;
+}
+.bio{
+	margin: 1%;
+	margin-left: 10px;
+  	font-size: 16px;
+  	font-weight: 400;
+  	align-self: flex-start;
+}
+.imgProfileContainer {
+    background: #716b6b;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .imgProfileContainer div {
+    font-size: 45px;
+    color: #ffffff;
+    height: 70%;
+  }
+  .imgProfileContainer img {
+    width: 100%;
+    height: 100%;
+  }
+  .labelContainer{
+	align-self: center;
+  }
+  img {
+    max-width: 100px;
+    border-radius: 50%;
+  }
+  @media (max-width: 768px) {
+    .card {
+      grid-template-columns: 1fr; 
+      text-align: center;
+    }
+	.nameCard,.usernameCard{
+		align-self: center;
+	}
+    .labelContainer {
+      grid-column: 1 / -1; 
+      margin-top: 10px;
+    }
+	.d-none{
+		display: none;
+	}
+  }
+
+</style>

@@ -1,0 +1,129 @@
+---
+interface Props {
+	title: string;
+	href: string;
+}
+const { href, title } = Astro.props;
+---
+
+<div class="linkContainer">
+
+<a href={href}  target="_blank" class="link" >
+    <h2>{title}</h2>
+</a>
+ <button type="button" class="share-button" id="buttonShare">
+	<div class="dots">	
+		<img  src="/assets/3dots.svg">
+	</div>
+	<span class="share-text">Click to Share</span>
+  </button>
+</div>
+
+<script>
+	const nativeShare = function() {
+   if (navigator.share) { 
+      navigator.share({
+         title: "titulo",
+         text: "texto",
+         url: "URL", 
+      }) 
+   }
+   return false;
+}
+	const buttonShare = document.getElementById("buttonShare");
+	buttonShare?.addEventListener("click", function(event){
+		return nativeShare()
+	})
+</script>
+<style>
+	.linkContainer{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		margin: 10px 0;
+		border: 1px solid #c282db96;
+		border-radius: 38px;
+		color: white;
+		position: relative;
+		z-index: 0;
+		cursor: pointer;
+	}
+	.link{
+		text-decoration: none;
+		width: 100%;
+		text-align: center;
+		color:white;
+	}
+	.link:visited{
+		color: white;
+	}
+	.linkContainer:hover {
+		background-color: #c282db96;
+		transition: ease-in-out 0.5s;
+	}
+	.link h2{
+		font-size: 1rem;
+	}
+	.share-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+    z-index: 99;
+    width: 45px;
+    height: 50px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: width 0.3s ease, background-color 0.3s ease;
+    white-space: nowrap;
+    padding: 0;
+  }
+  .dots{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: transform 0.3s ease;
+  }
+
+  .share-button:hover {
+    width: 150px;
+  }
+
+  .share-button:hover .dots {
+   display: none;
+  }
+
+  .share-text {
+    font-size: 1rem;
+    color: white;
+    margin-left: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .share-button:hover .share-text {
+    opacity: 1;
+  }
+  button{
+		background-color: transparent;
+		border: none;
+		cursor: pointer;
+		position: absolute;
+		right: 10px;
+		z-index: 99;
+		width: 45px;
+    pointer-events: all;
+    padding: 0;
+    height: 50px;
+	}
+
+</style>
