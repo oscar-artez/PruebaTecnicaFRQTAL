@@ -1,5 +1,5 @@
 export async function fetchUsers() {
-    const baseUrl = import.meta.env.SITE || "http://localhost:4321/";
+    const baseUrl = import.meta.env.PROD ? import.meta.env.BASE_URL : 'http://localhost:4322';
     try {
       const response = await fetch(`${baseUrl}/dummy/mockData.json`);
       if (!response.ok) {

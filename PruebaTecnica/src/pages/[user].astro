@@ -7,7 +7,7 @@ export const prerender = false;
 const { user } = Astro.params;
 
 const users = await fetchUsers();
-const baseUrl = import.meta.env.SITE || "http://localhost:4321";
+const baseUrl = import.meta.env.SITE;
 const currentUser = users.find((u:any) => u.username === user);
 const firstLetter = currentUser.name.charAt(0).toUpperCase();
 const isProfilePicture = currentUser.profile_picture;
