@@ -1,54 +1,53 @@
-# Astro Starter Kit: Basics
+# Proyecto Astro
 
-```sh
-npm create astro@latest -- --template basics
-```
+Este proyecto está construido con [Astro](https://astro.build/), un framework moderno para crear sitios web rápidos y optimizados.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## Requisitos
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Antes de comenzar, asegúrate de tener [pnpm](https://pnpm.io/) instalado en tu sistema. `pnpm` es un gestor de paquetes rápido y eficiente que es necesario para manejar las dependencias de este proyecto.
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+### Instalación de `pnpm`
 
-## 🚀 Project Structure
+Para instalar `pnpm`, ejecuta el siguiente comando:
 
-Inside of your Astro project, you'll see the following folders and files:
+```bash
+npm install -g pnpm
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+Configuración y Ejecución
+Para configurar y ejecutar el proyecto localmente, sigue estos pasos:
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Clona el repositorio: Primero, necesitas clonar el repositorio del proyecto a tu máquina local. Abre una terminal y ejecuta el siguiente comando:
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+bash
+Copiar código
+git clone https://github.com/tu-usuario/tu-repositorio.git
+Reemplaza https://github.com/tu-usuario/tu-repositorio.git con la URL del repositorio del proyecto.
 
-Any static assets, like images, can be placed in the `public/` directory.
+Navega al directorio del proyecto: Una vez que hayas clonado el repositorio, entra en el directorio del proyecto con:
 
-## 🧞 Commands
+bash
+Copiar código
+cd tu-repositorio
+Asegúrate de reemplazar tu-repositorio con el nombre del directorio que has clonado.
 
-All commands are run from the root of the project, from a terminal:
+Instala las dependencias: Con pnpm instalado y estando en el directorio del proyecto, ejecuta el siguiente comando para instalar todas las dependencias necesarias:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+bash
+Copiar código
+pnpm install
+Ejecuta el proyecto en modo de desarrollo: Para iniciar el servidor de desarrollo y ver el proyecto en tu navegador, usa:
 
-## 👀 Want to learn more?
+bash
+Copiar código
+pnpm run dev
+Luego, abre tu navegador y visita http://localhost:3000 para ver el proyecto en funcionamiento.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Scripts Disponibles
+pnpm run dev: Inicia el servidor de desarrollo.
+pnpm run build: Construye el proyecto para producción.
+pnpm run preview: Previsualiza la versión de producción construida.
+Contribuciones
+Si deseas contribuir al proyecto, por favor realiza un pull request con tus cambios.
+
+Licencia
+Este proyecto está licenciado bajo la Licencia MIT.
