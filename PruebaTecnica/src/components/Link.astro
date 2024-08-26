@@ -20,30 +20,32 @@ const { href, title } = Astro.props;
 </div>
 
 <script>
-	const nativeShare = async function(event: MouseEvent) {
-	const linkElement = (event.target as Element)?.closest('.linkContainer')?.querySelector('a');
-	  
-	  if (navigator.share && linkElement) {
-		try {
-		  await navigator.share({
-			title: linkElement.querySelector('h2')?.textContent || 'Link compartido',
-			text: 'Consulta este enlace:',
-			url: linkElement.href
-		  });
-		} catch (error) {
-		  console.error('Error al compartir:', error);
-		}
-	  } else {
-		alert('La función de compartir no está disponible en este dispositivo.');
-	  }
-	};
-  
-	document.addEventListener("DOMContentLoaded", () => {
-	  const buttonShare = document.getElementById("buttonShare");
-	  if (buttonShare) {
-		buttonShare.addEventListener("click", nativeShare);
-	  }
-	});
+  const nativeShare = async (event: MouseEvent): Promise<void> => {
+    const button = event.target as HTMLElement;
+    const linkContainer = button.closest('.linkContainer');
+    const linkElement = linkContainer?.querySelector('a') as HTMLAnchorElement | null;
+
+    if (navigator.share && linkElement) {
+      try {
+        await navigator.share({
+          title: linkElement.querySelector('h2')?.textContent || '', 
+          text: 'Consulta este enlace:',
+          url: linkElement.href 
+        });
+      } catch (error) {
+        console.error('Error al compartir:', error);
+      }
+    } else {
+      alert('La función de compartir no está disponible en este dispositivo.');
+    }
+  };
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const buttonsShare = document.querySelectorAll<HTMLButtonElement>(".share-button");
+    buttonsShare.forEach((button) => {
+      button.addEventListener("click", nativeShare);
+    });
+  });
   </script>
 <style>
 	.linkContainer{
