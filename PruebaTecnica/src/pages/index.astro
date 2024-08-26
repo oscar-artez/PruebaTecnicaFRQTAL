@@ -1,9 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
-import { fetchUsers } from '../service/fetchUsers';
+import dataDummy from '../../public/dummy/mockData.json';
 
-const getData = await fetchUsers();
+const getData = dataDummy;
 ---
 
 <Layout title="Top 5 Best Linktrees">

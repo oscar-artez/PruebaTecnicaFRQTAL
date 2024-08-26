@@ -1,16 +1,16 @@
 ---
-import { fetchUsers } from '../service/fetchUsers';
+import dataDummy from '../../public/dummy/mockData.json';
 import LayoutUser from '../layouts/LayoutUser.astro';
 import Link from '../components/Link.astro';
 
 export const prerender = false;
 const { user } = Astro.params;
 
-const users = await fetchUsers();
+const users = dataDummy;
 const baseUrl = import.meta.env.SITE;
 const currentUser = users.find((u:any) => u.username === user);
-const firstLetter = currentUser.name.charAt(0).toUpperCase();
-const isProfilePicture = currentUser.profile_picture;
+const firstLetter = currentUser?.name.charAt(0).toUpperCase();
+const isProfilePicture = currentUser?.profile_picture;
 
 if (!currentUser) {
   throw new Error("User not found");
