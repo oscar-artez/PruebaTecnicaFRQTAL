@@ -125,5 +125,29 @@ const { href, title } = Astro.props;
     padding: 0;
     height: 50px;
 	}
+	
+	@media (max-width: 768px) {
+		.share-button {
+    width: 45px ;
+    transition: none ;
+  }
+  
+  .share-button:hover {
+    width: 45px ;
+  }
+  
+  .share-text {
+    opacity: 0 ;
+  }
+  
+  .share-button:hover .share-text {
+    opacity: 0;
+  }
+  
+  .dots {
+    display: flex;
+    transform: none;
+  }
+	}
 
 </style>
